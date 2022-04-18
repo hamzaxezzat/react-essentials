@@ -6,10 +6,12 @@ const Card = ({ nameList, color, type }) => {
         <div
             className={styles.cardWrapper}
             key={idx}
-            style={{
-                backgroundColor: color,
-                border: type === "boys" ? "2px solid red" : "2px solid green",
-            }}
+            style={
+                {
+                    // backgroundColor: color,
+                    // border: type === "boys" ? "2px solid red" : "2px solid green",
+                }
+            }
         >
             <div>Name: {name}</div>
             <div>Age: {age}</div>

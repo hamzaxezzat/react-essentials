@@ -1,26 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./App.module.css";
 import Card from "../Card/Cards.js";
+require("react-dom");
+window.React2 = require("react");
+console.log(window.React1 === window.React2);
 
 const App = () => {
-    const boys = [
+    const [state, setState] = useState([
         { name: "Hamza", age: 25, number: "01010142" },
         { name: "Omar", age: 30, number: "010101123" },
         { name: "Abdo", age: 35, number: "010101345" },
-    ];
-    const girls = [
-        { name: "Doha", age: 30, number: "01010142" },
-        { name: "Fedaa", age: 25, number: "0101010122" },
-        { name: "Rowayda", age: 16, number: "010101231" },
-        { name: "Raghad", age: 15, number: "010101345" },
-    ];
-
+    ]); // useState take two things 1.Holder
     return (
         <div className={styles.mainContainer}>
             <h1>Boys</h1>
-            <Card nameList={boys} color={"darkorange"} type="boys" />
-            <h1>Girls</h1>
-            <Card nameList={girls} color={"pink"} type="girls" />
+            <Card nameList={state} />
         </div>
     );
 };
