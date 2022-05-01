@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./App.module.css";
-import Card from "../Card/Cards.js";
+import Card from "../Card/Cards";
 require("react-dom");
 window.React2 = require("react");
 console.log(window.React1 === window.React2);
@@ -11,10 +11,20 @@ const App = () => {
         { name: "Omar", age: 30, number: "010101123" },
         { name: "Abdo", age: 35, number: "010101345" },
     ]); // useState take two things 1.Holder
+
+    const deleteHanddler = (e, clickedIdx) => {
+        // Way 1 > as object
+        // const deleteOberation = state.filter((el, idx) => idx !== clickedIdx);
+        // setState(deleteOberation);
+        // Way 2 > as function
+        setState((prevState) => {
+            return prevState.filter((el, idx) => idx !== clickedIdx);
+        });
+    };
     return (
         <div className={styles.mainContainer}>
             <h1>Boys</h1>
-            <Card nameList={state} />
+            <Card nameList={state} deleteFunc={deleteHanddler} />
         </div>
     );
 };
